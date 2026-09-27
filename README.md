@@ -7,8 +7,8 @@ Mushrink exists to automate the continuous compression work that would otherwise
 
 It:
 
-- scans the source and destination directories,
-- makes sure the content is properly synchronized (i.e., there are no files in output directory that don't exist in source), and
+- scans the input and output directories,
+- makes sure the content is properly synchronized (i.e., there are no tracks in the output directory that don't exist in the input directory), and
 - compresses the music from FLAC to MP3 in parallel.
 
 ## Dependencies
