@@ -13,6 +13,6 @@ symlinkJoin {
   nativeBuildInputs = [ makeWrapper ];
   postBuild = ''
     wrapProgram $out/bin/mushrink \
-      --suffix PATH : ${lib.makeBinPath [ (ffmpeg.override { withMp3lame = true; }) ]}
+      --prefix PATH : ${lib.makeBinPath [ (ffmpeg.override { withMp3lame = true; }) ]}
   '';
 }
