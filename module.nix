@@ -130,6 +130,35 @@ in
                     ];
                 in
                 utils.escapeSystemdExecArgs args;
+
+              DynamicUser = true;
+              ReadOnlyPaths = [ job.input ];
+              ReadWritePaths = [ job.output ];
+
+              ProtectSystem = "strict";
+              ProtectHome = true;
+              PrivateTmp = true;
+              ProtectControlGroups = true;
+              ProtectKernelTunables = true;
+              ProtectKernelModules = true;
+              ProtectKernelLogs = true;
+
+              NoNewPrivileges = true;
+              CapabilityBoundingSet = "";
+              RestrictSUIDSGID = true;
+
+              SystemCallArchitectures = "native";
+              SystemCallFilter = [
+                "@system-service"
+                "~@privileged"
+                "~@resources"
+              ];
+
+              PrivateNetwork = true;
+              RestrictAddressFamilies = "none";
+              DevicePolicy = "closed";
+              ProtectClock = true;
+              ProtectProc = "invisible";
             };
           };
         }
