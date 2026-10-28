@@ -155,7 +155,7 @@ in
               ];
 
               PrivateNetwork = true;
-              RestrictAddressFamilies = "none";
+              RestrictAddressFamilies = [ "AF_UNIX" ];
               DevicePolicy = "closed";
               ProtectClock = true;
               ProtectProc = "invisible";
